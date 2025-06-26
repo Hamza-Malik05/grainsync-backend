@@ -1,2 +1,10 @@
 [build]
 builder = "NIXPACKS"
+
+[variables]
+MAVEN_GOALS = "clean package -DskipTests"
+
+[start]
+cmd = "java -jar target/*.jar"
+[build]
+environment = { BP_JAVA_VERSION = "21" }
