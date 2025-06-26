@@ -14,11 +14,12 @@
 	<groupId>com.plant_management</groupId>
 	<artifactId>GrainSync</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>plant-management</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>23</java.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencies>
@@ -71,17 +72,13 @@
 
 	<build>
 		<plugins>
-			<!-- Enable preview features for Java 23 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
 				<configuration>
-					<source>23</source>
-					<target>23</target>
-					<compilerArgs>
-						<arg>--enable-preview</arg>
-					</compilerArgs>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
@@ -95,15 +92,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<jvmArguments>--enable-preview</jvmArguments>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
