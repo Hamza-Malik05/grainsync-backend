@@ -13,7 +13,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:3000") // Adjust as needed for React
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+// Adjust as needed for React
 public class ProductController {
 
     @Autowired

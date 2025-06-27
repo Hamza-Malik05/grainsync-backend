@@ -12,6 +12,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/bills")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
+
 public class BillController {
 
     private final BillService billService;

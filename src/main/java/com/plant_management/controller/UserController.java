@@ -13,6 +13,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class UserController {
 
     private final UserService userService;

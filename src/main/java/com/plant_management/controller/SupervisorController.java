@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/supervisors")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class SupervisorController {
 
     @Autowired

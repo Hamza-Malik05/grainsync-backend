@@ -18,7 +18,9 @@ import org.springframework.stereotype.Service;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
+
 public class OrderController {
 
     @Autowired

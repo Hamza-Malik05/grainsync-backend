@@ -12,6 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/purchases")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class PurchaseController {
 
     @Autowired

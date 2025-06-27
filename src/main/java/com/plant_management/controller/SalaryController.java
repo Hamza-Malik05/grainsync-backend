@@ -13,7 +13,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/salaries")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class SalaryController {
 
     @Autowired

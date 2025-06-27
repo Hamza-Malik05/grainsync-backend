@@ -14,7 +14,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
+
 public class EmployeeController {
     private final EmployeeRepository employeeRepository;
     private final EmployeeService employeeService;

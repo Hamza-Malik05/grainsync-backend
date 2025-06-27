@@ -10,7 +10,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/sales")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class SaleController {
 
     @Autowired

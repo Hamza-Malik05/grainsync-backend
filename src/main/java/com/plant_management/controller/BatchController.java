@@ -13,7 +13,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/batches")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class BatchController {
 
     @Autowired

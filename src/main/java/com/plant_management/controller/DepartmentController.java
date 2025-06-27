@@ -8,6 +8,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/departments")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
+
 public class DepartmentController {
 
     private final DepartmentService departmentService;

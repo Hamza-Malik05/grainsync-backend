@@ -9,7 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/vehicles")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class VehicleController {
 
     @Autowired

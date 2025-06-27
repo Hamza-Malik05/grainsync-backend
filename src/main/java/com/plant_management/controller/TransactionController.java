@@ -9,7 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class TransactionController {
 
     private final TransactionService service;

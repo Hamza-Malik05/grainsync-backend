@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/product-inventory-storage")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class ProductInventoryStorageController {
 
     @Autowired

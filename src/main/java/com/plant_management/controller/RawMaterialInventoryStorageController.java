@@ -9,6 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/storage-units")
+@CrossOrigin(origins = "https://grainsync.up.railway.app")
+
 public class RawMaterialInventoryStorageController {
 
     @Autowired
