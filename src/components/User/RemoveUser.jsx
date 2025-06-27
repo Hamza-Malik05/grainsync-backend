@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const RemoveUser = () => {
     const [users, setUsers] = useState([]);
     const [message, setMessage] = useState('');
+    const loggedInUsername = localStorage.getItem('username'); // Get logged-in username
 
     useEffect(() => {
         fetchUsers();
@@ -76,34 +79,42 @@ const RemoveUser = () => {
                             </td>
                         </tr>
                     ) : (
-                        users.map((user) => (
-                            <tr key={user.user_id} className="border-t hover:bg-gray-50">
-                                <td className="p-3">{user.user_id}</td>
-                                <td className="p-3">{user.username}</td>
-                                <td className="p-3 capitalize">{user.role}</td>
-                                <td className="p-3">
-                                    <div className="flex justify-center gap-3">
-                                        <button
-                                            onClick={() => handleDelete(user.user_id)}
-                                            className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg shadow"
-                                        >
-                                            Delete
-                                        </button>
-                                        <button
-                                            onClick={() => handleMakeAdmin(user.user_id)}
-                                            disabled={user.role === 'admin'}
-                                            className={`px-4 py-1 rounded-lg shadow text-white ${
-                                                user.role === 'admin'
-                                                    ? 'bg-gray-400 cursor-not-allowed'
-                                                    : 'bg-blue-500 hover:bg-blue-600'
-                                            }`}
-                                        >
-                                            {user.role === 'admin' ? 'Already Admin' : 'Make Admin'}
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))
+                        users.map((user) => {
+                            const isProtected = user.username === 'h_malik' || user.username === loggedInUsername;
+                            return (
+                                <tr key={user.user_id} className="border-t hover:bg-gray-50">
+                                    <td className="p-3">{user.user_id}</td>
+                                    <td className="p-3">{user.username}</td>
+                                    <td className="p-3 capitalize">{user.role}</td>
+                                    <td className="p-3">
+                                        <div className="flex justify-center gap-3">
+                                            <button
+                                                onClick={() => handleDelete(user.user_id)}
+                                                disabled={isProtected}
+                                                className={`px-4 py-1 rounded-lg shadow text-white ${
+                                                    isProtected
+                                                        ? 'bg-gray-400 cursor-not-allowed'
+                                                        : 'bg-red-500 hover:bg-red-600'
+                                                }`}
+                                            >
+                                                {isProtected ? 'Protected' : 'Delete'}
+                                            </button>
+                                            <button
+                                                onClick={() => handleMakeAdmin(user.user_id)}
+                                                disabled={user.role === 'admin'}
+                                                className={`px-4 py-1 rounded-lg shadow text-white ${
+                                                    user.role === 'admin'
+                                                        ? 'bg-gray-400 cursor-not-allowed'
+                                                        : 'bg-blue-500 hover:bg-blue-600'
+                                                }`}
+                                            >
+                                                {user.role === 'admin' ? 'Already Admin' : 'Make Admin'}
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            );
+                        })
                     )}
                     </tbody>
                 </table>
@@ -112,4 +123,4 @@ const RemoveUser = () => {
     );
 };
 
-export default RemoveUser;
+export default RemoveUser
