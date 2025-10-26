@@ -40,6 +40,7 @@ spring.jpa.show-sql=true
 server.port=8080
 3. Run Locally:
  mvn spring-boot:run
+
 🧑‍💻 Developer Notes
 • Ensure both frontend and backend run simultaneously for local testing.
 • CORS configured to allow frontend requests.
